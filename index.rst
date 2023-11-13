@@ -23,9 +23,9 @@ Control boxes.
 ===================================
 There are three main control boxes, as seen below:
 
-.. image:: ./_static/Main_Box_Dummy.jpg  
+.. image:: ./_static/Main_Box.jpg  
 
-Figure 1.  Main control box (need a new picture - this is actually the top box). This is on the first floor near the ventilation fan.
+Figure 1.  Main control box. This is on the first floor near the ventilation fan.
 
 .. image:: ./_static/Top_Box.jpg
 
@@ -46,49 +46,54 @@ This will give you a list of commands.  More details are in Figure 3.2 of downlo
 
 Connecting to the control box EUIs
 ==================================
-The main control box and top control box each have Engineering User Interfaces (EUIs) that allow you to view the state of each control interface.  In general these allow you to see the states, but not actually do a signifiant amount of control.  You can access these screens as follows:
+The main control box and top control box each have Engineering User Interfaces (EUIs) that allow you to view the state of each control interface.  In general these allow you to see the states, but not actually do a significant amount of control.  You can access these screens as follows:
 
 #. Open Microsoft Remote Desktop
-#. Go to aux-brick01.cp.lsst.org
+#. Go to aux-brick01.cp.lsst.org. Figure 4 shows the physical location of this computer.
 #.  The username and password are in the 1password vault.
 #. Open Microsoft Edge, and you should see tabs for the Main Box Dome Control and Top Box Dome Control.
 
-   Figures 4 and 5 show what these screens should look like.
+   Figures 5 and 6 show what these screens should look like.
 
+.. image:: ./_static/aux-brick01.jpg
+
+Figure 4.  The aux-brick01.cp.lsst.org computer is on the floor of the main control cabinet on the first floor of the AuxTel dome.
+
+   
 .. image:: ./_static/Main_Box_Control.png
 
-Figure 4.  Main Box Control
+Figure 5.  Main Box Control
 
 .. image:: ./_static/Top_Box_Control.png
 
-Figure 5.  Top Box Control
+Figure 6.  Top Box Control
 
 Working with the variable frequency drive
 ==================================================
-The Schneider VFD controller is show in Figure 6.  Changes to the VFD programming can adjust the dome rotation speed, accelerations, etc.  Instructions on how to do this are in dowloadable Appendix 1, Sections 2.4 and 2.5, and in downloadable Appendix 3.
+The Schneider VFD controller is show in Figure 7.  Changes to the VFD programming can adjust the dome rotation speed, accelerations, etc.  Instructions on how to do this are in dowloadable Appendix 1, Sections 2.4 and 2.5, and in downloadable Appendix 3.
 
 .. image:: ./_static/Dome_VFD.jpg
 
-Figure 6.  VFD controller
+Figure 7.  VFD controller
 
 
 Problem 1 - Lack of button control
 ============================================
-There are a number of problems with the AuxTel dome currently.  The first one is detailed in https://jira.lsstcorp.org/browse/OBS-257.  Basically, after the ATDome cRIO is re-booted, the manual dome rotation buttons respond as they should. However, once the ATDome CSC is enabled, the rotation buttons fail to respond, even after the CSC is back in standby.   Note that both the main shutter and the dropout shutter open/close buttons continue to respond as they should, it is only the dome rotation buttons that are affected.  To reboot the cRIOs and recover this functionality, Figures 8 and 9 show the locations of the cRIO reset buttons.  The main box cRIO should be reset first, followed by the top box cRIO.
+There are a number of problems with the AuxTel dome currently.  The first one is detailed in https://jira.lsstcorp.org/browse/OBS-257.  Basically, after the ATDome cRIO is re-booted, the manual dome rotation buttons respond as they should. However, once the ATDome CSC is enabled, the rotation buttons fail to respond, even after the CSC is back in standby.   Note that both the main shutter and the dropout shutter open/close buttons continue to respond as they should, it is only the dome rotation buttons that are affected.  To reboot the cRIOs and recover this functionality, Figures 9 and 10 show the locations of the cRIO reset buttons.  The main box cRIO should be reset first, followed by the top box cRIO.
 
 
 .. image:: ./_static/Box_at_Top_of_Stairs.jpg
 
-Figure 7.  This box at the top of the stairs has manual buttons for controlling the dome.
+Figure 8.  This box at the top of the stairs has manual buttons for controlling the dome.
 
 
 .. image:: ./_static/Main_Box_cRIO.png
 
-Figure 8.  Arrow 6 shows the location of the reset button for the main box cRIO.
+Figure 9.  Arrow 6 shows the location of the reset button for the main box cRIO.
 
 .. image:: ./_static/Top_Box_cRIO.png
 
-Figure 9.  The yellow arrow shows the location of the reset button for the top box cRIO.
+Figure 10.  The yellow arrow shows the location of the reset button for the top box cRIO.
 
 
 
@@ -122,6 +127,8 @@ We have eliminated the following causes:
 
 #.  It is not a loss of communication between the main box and the top box. I tried cutting that communication and the shutter did not close. Also, the light indicating successful communication between the two boxes stays on during the events.
 
+#.  It is not a problem with power supplied to the top box cRIO.  We have attached a monitor to the 24V supply feeding this cRIO, and it is very stable.
+
 Fritz Mueller and I have installed a LabJack to monitor the signals in the top box.  There is a second LabJack ready to be connected to the main box, but it is not yet hooked up.  This has enabled us to verify what is actually happening and has led to the learning in the summary above.  To enable the monitoring involves running a Python script which is available at: https://github.com/craiglagegit/Notebook_Keeper/blob/main/scripts/Dome_Monitor_Test_17Aug23.py
 
 To launch this, I typically use the following command:
@@ -134,11 +141,11 @@ After running the monitoring, I typically analyze the data with this notebook:
 
 https://github.com/craiglagegit/Notebook_Keeper/blob/main/summit_notebooks/Dome_Monitor_Analysis_24Aug23.ipynb
 
-This will make a series of plots like Figure 10.
+This will make a series of plots like Figure 11.
 
 .. image:: ./_static/Monitor_Plot_01.png
 
-Figure 10.  A plot of a typical phantom close event from the dome monitoring set-up.
+Figure 11.  A plot of a typical phantom close event from the dome monitoring set-up.
 
 
 
