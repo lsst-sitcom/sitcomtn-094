@@ -135,9 +135,9 @@ The main control box and top control box each have Engineering User Interfaces (
 #.  The username and password are in the 1password vault.  (NOT YET!!!)
 #.  Figures 6, 7, and 8 show the EUI screens
 
-.. image:: ./_static/aux-brick01.jpg
+.. image:: ./_static/GUI_Machine.jpg
 
-Figure 5.  The ATDome EUI computer is on the table on the first floor of the AuxTel dome. NEED NEW PICTURE
+Figure 5.  The ATDome EUI computer is on the table on the first floor of the AuxTel dome. 
    
 .. image:: ./_static/AuxTel_Dome_EUI_Main_Screen.png
 
@@ -156,13 +156,15 @@ Restarting the cRIOs
 
 Occasionally there are problems that require restarting the ATDome cRIOs.  This section shows how that is done.  To reboot the cRIOs and recover this functionality, Figures 9 and 10 show the locations of the cRIO reset buttons.  The main box cRIO should be reset first, followed by the top box cRIO.
 
-.. image:: ./_static/Main_Box_cRIO.png
+.. image:: ./_static/Main_Box_Inside.jpg
 
-Figure 9.  Arrow 6 shows the location of the reset button for the main box cRIO. NEED NEW PICTURE
+Figure 9.  Arrow 6 shows the location of the reset button for the main box cRIO. 
 
-.. image:: ./_static/Top_Box_cRIO.png 
+.. image:: ./_static/Top_Box_Inside.jpg 
 
-Figure 10.  The yellow arrow shows the location of the reset button for the top box cRIO.  NEED NEW PICTURE
+Figure 10.  The yellow arrow shows the location of the reset button for the top box cRIO.  Note that the Top Box is currently controlled by the
+cRIO on the floor of the cabinet.  Soon this will change and it will again be controlled by the cRIO at the top of the cabinet.
+We also plan to replace this cabinet with a larger cabinet.
 
 
 
