@@ -85,7 +85,9 @@ This will give you the following list of commands::
   AWF  Private control link OFF (WIFI-6 antenna)
   HELP  Display this list of available commands
 
- It is also possible to telnet into the Top Box  To connect to the Top Box, follow these steps.  Note that the IP address of the Top Box may change.
+
+
+It is also possible to telnet into the Top Box  To connect to the Top Box, follow these steps.  Note that the IP address of the Top Box may change.
 
 #. telnet 139.229.170.101 17307
 #. At the > prompt, type HELP.
